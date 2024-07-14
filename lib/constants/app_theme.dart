@@ -1,23 +1,3 @@
-/// Creating custom color palettes is part of creating a custom app. The idea is to create
-/// your class of custom colors, in this case `CompanyColors` and then create a `ThemeData`
-/// object with those colors you just defined.
-///
-/// Resource:
-/// A good resource would be this website: http://mcg.mbitson.com/
-/// You simply need to put in the colour you wish to use, and it will generate all shades
-/// for you. Your primary colour will be the `500` value.
-///
-/// Colour Creation:
-/// In order to create the custom colours you need to create a `Map<int, Color>` object
-/// which will have all the shade values. `const Color(0xFF...)` will be how you create
-/// the colours. The six character hex code is what follows. If you wanted the colour
-/// #114488 or #D39090 as primary colours in your setting, then you would have
-/// `const Color(0x114488)` and `const Color(0xD39090)`, respectively.
-///
-/// Usage:
-/// In order to use this newly created setting or even the colours in it, you would just
-/// `import` this file in your project, anywhere you needed it.
-/// `import 'path/to/setting.dart';`
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -44,7 +24,7 @@ class AppThemeData {
         iconTheme: IconThemeData(color: colorScheme.primary),
       ),
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
-      canvasColor: colorScheme.background,
+      canvasColor: colorScheme.surface,
       scaffoldBackgroundColor: colorScheme.background,
       highlightColor: Colors.transparent,
       focusColor: focusColor,
@@ -54,7 +34,7 @@ class AppThemeData {
           _lightFillColor.withOpacity(0.80),
           _darkFillColor,
         ),
-        contentTextStyle: _textTheme.subtitle1!.apply(color: _darkFillColor),
+        contentTextStyle: _textTheme.bodyLarge!.apply(color: _darkFillColor),
       ),
     );
   }
@@ -98,15 +78,15 @@ class AppThemeData {
   static const _bold = FontWeight.w700;
 
   static final TextTheme _textTheme = TextTheme(
-    headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
-    caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
-    headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
-    subtitle1: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
-    overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
-    bodyText1: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
-    subtitle2: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
-    bodyText2: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
-    headline6: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
-    button: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
+    displaySmall: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
+    titleMedium: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
+    titleSmall: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
+    titleLarge: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
+    labelSmall: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
+    bodyMedium: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
+    bodySmall: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
+    bodyLarge: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
+    headlineSmall: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
+    labelLarge: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
   );
 }
